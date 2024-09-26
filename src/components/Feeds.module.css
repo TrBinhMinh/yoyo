@@ -22,3 +22,7 @@
 .container a {
   text-decoration: none;
 }
+
+.feeds {
+  border: 1px solid #333;
+}
