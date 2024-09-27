@@ -10,8 +10,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { arrowBack, backspace, ellipse, home, menu, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
+import { arrowBack, home, menu, squareOutline } from 'ionicons/icons';
+import Dashboard from './pages/Dashboard';
 import Homepage from './pages/Homepage';
 import Tab3 from './pages/Tab3';
 
@@ -52,8 +52,8 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/dashboard">
+            <Dashboard />
           </Route>
           <Route exact path="/homepage">
             <Homepage />
@@ -62,13 +62,13 @@ const App: React.FC = () => (
             <Tab3 />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/homepage" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={arrowBack} />
-            <IonLabel>Back</IonLabel>
+          <IonTabButton tab="dashboard" href="/dashboard">
+            <IonIcon aria-hidden="true" icon={squareOutline} />
+            <IonLabel>Dashboard</IonLabel>
           </IonTabButton>
           <IonTabButton tab="homepage" href="/homepage">
             <IonIcon aria-hidden="true" icon={home} />

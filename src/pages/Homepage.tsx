@@ -1,9 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import Feeds from '../components/Feeds';
-import './Homepage.css';
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import Feeds from "../components/Feeds";
+import "./Homepage.css";
 
- export interface Feed {
-  _id: number
+export interface Feed {
+  _id: number;
   title: string;
   content: string;
   creator: string;
@@ -16,41 +22,33 @@ import './Homepage.css';
 const feeds: Feed[] = [
   {
     _id: 0,
-    title: 'Car Collection',
-    content: '',
-    creator: 'Tim',
-    comments: [
-      { _id: 0, content: 'very good' }
-    ]
+    title: "Car Collection",
+    content: "a nice collection of cars",
+    creator: "Tim",
+    comments: [{ _id: 0, content: "very good" }],
   },
   {
     _id: 1,
-    title: 'Travelling Asia',
-    content: '',
-    creator: 'Yuna',
-    comments: [
-      { _id: 0, content: 'this is nice' }
-    ]
+    title: "Travelling Asia",
+    content: "travelling around Asia",
+    creator: "Yuna",
+    comments: [{ _id: 0, content: "this is nice" }],
   },
   {
     _id: 2,
-    title: 'Pop Culture',
-    content: '',
-    creator: 'Kyle',
-    comments: [
-      { _id: 0, content: 'liked!' }
-    ]
+    title: "Pop Culture",
+    content: "this is about pop culture",
+    creator: "Kyle",
+    comments: [{ _id: 0, content: "liked!" }],
   },
   {
     _id: 3,
-    title: 'Stars',
-    content: '',
-    creator: 'Mike',
-    comments: [
-      { _id: 0, content: 'beautiful!' }
-    ]
+    title: "Stars",
+    content: "beautiful stars at night",
+    creator: "Mike",
+    comments: [{ _id: 0, content: "beautiful!" }],
   },
-]
+];
 
 const Homepage: React.FC = () => {
   return (
