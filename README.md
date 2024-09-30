@@ -21,7 +21,7 @@ Follow these steps to get started:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/yoyo.git
+   git clone https://github.com/TrBinhMinh/yoyo.git
    cd yoyo
    ```
 
