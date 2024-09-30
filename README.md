@@ -1,6 +1,3 @@
-Here's a sample `README.md` for your project, **yoyo**:
-
-```markdown
 # yoyo
 
 **yoyo** is an Ionic app that provides a user-friendly moderation dashboard for approving or rejecting user-submitted posts. It also includes a feed where users can view content, leave comments, and translate content into their preferred language using AWS Translate.
