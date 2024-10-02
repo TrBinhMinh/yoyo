@@ -5,16 +5,16 @@ import {
   TranslateClient,
   TranslateTextCommand,
 } from "@aws-sdk/client-translate";
+import { IonButton, IonIcon, IonItem } from "@ionic/react";
+import { chatbubbleOutline, heartOutline, repeatOutline, shareSocialOutline } from "ionicons/icons";
 
 interface ContainerProps {
   feeds: Feed[];
 }
 
-const client = new TranslateClient({ defaultsMode: "mobile" });
+const client = new TranslateClient({ defaultsMode: "mobile", region: 'ap-east-1' });
 
 const Feeds: React.FC<ContainerProps> = ({ feeds }) => {
-  const [translatedItems, setTranslatedItems] = useState([])
-  
   const translate = async (text: string) => {
     const input = { // TranslateTextRequest
       Text: text, // required
@@ -28,26 +28,31 @@ const Feeds: React.FC<ContainerProps> = ({ feeds }) => {
     };
     const command = new TranslateTextCommand(input as any);
     const response = await client.send(command);
+
+    console.log("response: ", response);
+    
   }
 
   return (
     <div className={classes.container}>
-      {feeds?.map(({ _id, title, content, creator, comments }) => (
-        <div className={classes.feeds} key={_id}>
-          <div className={classes.user}>
-            <img src="../../resources/icon.png" className={classes.img} />
-            <p className={classes.creator}>{creator}</p>
+      {feeds?.map(({ _id, userId, content, creator, comments }) => (
+        <IonItem lines="none" className={classes.feed} key={_id}>
+          <img className={classes.img} src="../../resources/icon.png" alt="Avatar" />
+          <div className={classes.content}>
+            <div className={classes.header}>
+              <h2>{creator}</h2>
+              <span className={classes.username}>{userId}</span>
+            </div>
+            <p className={classes.text}>{content}</p>
+            <IonButton fill="clear" className={classes.btn} onClick={translate.bind(null, content)}>Translate</IonButton>
+            <div className={classes.footer}>
+              <IonIcon className={classes.icon} icon={chatbubbleOutline}></IonIcon>
+              <IonIcon className={classes.icon} icon={repeatOutline}></IonIcon>
+              <IonIcon className={classes.icon} icon={heartOutline}></IonIcon>
+              <IonIcon className={classes.icon} icon={shareSocialOutline}></IonIcon>
+            </div>
           </div>
-          <p className={classes.title}>{title}</p>
-          <p className={classes.content}>{content}</p>
-          <div className={classes.comments}>
-            {comments?.map((comment) => (
-              <p key={comment._id} className={classes.comment}>
-                {comment.content}
-              </p>
-            ))}
-          </div>
-        </div>
+        </IonItem>
       ))}
     </div>
   );

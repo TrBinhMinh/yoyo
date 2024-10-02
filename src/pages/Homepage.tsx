@@ -10,7 +10,7 @@ import "./Homepage.css";
 
 export interface Feed {
   _id: number;
-  title: string;
+  userId: string;
   content: string;
   creator: string;
   comments: {
@@ -22,28 +22,28 @@ export interface Feed {
 const feeds: Feed[] = [
   {
     _id: 0,
-    title: "Car Collection",
+    userId: "tim_02",
     content: "a nice collection of cars",
     creator: "Tim",
     comments: [{ _id: 0, content: "very good" }],
   },
   {
     _id: 1,
-    title: "Travelling Asia",
+    userId: "yuna_jp",
     content: "travelling around Asia",
     creator: "Yuna",
     comments: [{ _id: 0, content: "this is nice" }],
   },
   {
     _id: 2,
-    title: "Pop Culture",
+    userId: "user_kyle",
     content: "this is about pop culture",
     creator: "Kyle",
     comments: [{ _id: 0, content: "liked!" }],
   },
   {
     _id: 3,
-    title: "Stars",
+    userId: "football_lover",
     content: "beautiful stars at night",
     creator: "Mike",
     comments: [{ _id: 0, content: "beautiful!" }],
